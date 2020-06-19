@@ -2,19 +2,19 @@
 
 //Задача №1
 function getSolutions(a, b, c = 0) {
-    let D = (a, b, c) => { return Math.pow(b, 2) - (4 * a * c) };
-    let getRootsOne = (a, b, c) => { return Math.round((-b + Math.sqrt(D(a, b, c))) / (2 * a)) };
-    let getRootsTwo = (a, b, c) => { return Math.round((-b - Math.sqrt(D(a, b, c))) / (2 * a)) };
+    let D = () => { return b**2 - (4 * a * c) };
+    let getRootsOne = () => { return Math.round((-b + Math.sqrt(D())) / (2 * a)) };
+    let getRootsTwo = () => { return Math.round((-b - Math.sqrt(D())) / (2 * a)) };
     let object = {
-        D: D(a, b, c),
+        D: D(),
         roots: []
     }
-    if ( D(a, b, c) > 0 ) {
-        object.roots.push(getRootsOne(a, b, c));
-        object.roots.push(getRootsTwo(a, b, c));
+    if (D() > 0) {
+        object.roots.push(getRootsOne());
+        object.roots.push(getRootsTwo());
     }
-    else if ( D(a, b, c) == 0 ) {
-        object.roots.push(getRootsOne(a, b, c));
+    else if (D() == 0) {
+        object.roots.push(getRootsOne());
     }
     return object;
 }
@@ -33,7 +33,6 @@ function showSolutionsMessage(a, b, c = 0) {
         console.log("Уравнение не имеет вещественных корней");
     }
 }
-
 
 //Задача №2
 function getAverageMark(marks) {
