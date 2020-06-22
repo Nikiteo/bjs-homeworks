@@ -10,10 +10,8 @@ function getAverageMark(marks) {
 }
 
 function checkBirthday(birthday) {
-    const now = Number(new Date());
-    const birthday = Number(new Date(date));
+    let diff = Number(new Date()) - Number(new Date(birthday));
     const yearInMs = 365.25 * 24 * 60 * 60 * 1000;
-    let diff = now - birthday;
     let age = Math.floor(diff / yearInMs);
     return age >= 18 ? true : false;
 }
